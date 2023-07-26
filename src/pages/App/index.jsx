@@ -7,11 +7,12 @@ import {Route, Routes} from 'react-router-dom';
 import MovieListPage from '../MovieListPage';
 import MovieDetailPage from '../MovieDetailPage';
 import ActorListPage from '../ActorListPage';
+import ActorDetailPage from '../ActorDetailPage';
 
 export default function App() {
 	const [user, setUser] = useState(null);
-	const uniqueActors = new Set()
-	movies.forEach(m => m.cast.forEach(a => uniqueActors.add(a)))
+	const uniqueActors = new Set();
+	movies.forEach(m => m.cast.forEach(a => uniqueActors.add(a)));
 	
 	return (
 		<div className="App">
@@ -19,9 +20,10 @@ export default function App() {
 				<>
 					<NavBar user={user} setUser={setUser}/>
 					<Routes>
-						<Route path={'/'} element={<MovieListPage movies={movies} />} />
-						<Route path={'/movies/:movieName'} element={<MovieDetailPage />} />
-						<Route path={'/actors'} element={<ActorListPage actors={[...uniqueActors]} />} />
+						<Route path={'/'} element={<MovieListPage movies={movies}/>}/>
+						<Route path={'/movies/:movieName'} element={<MovieDetailPage/>}/>
+						<Route path={'/actors'} element={<ActorListPage actors={[...uniqueActors]}/>}/>
+						<Route path={'/actors/:actorName'} element={<ActorDetailPage/>}/>
 					</Routes>
 				</>
 				:

@@ -25,7 +25,7 @@ export default function LoginPage({setUser}) {
 					<input type="text" name="username" value={formData.username} onChange={handleChange} autoComplete={'username'} required/>
 					<label>Password</label>
 					<input type="password" name="password" value={formData.password} onChange={handleChange} autoComplete={'current-password'} required/>
-					<button type="submit">SIGN UP</button>
+					<button type="submit">Login</button>
 				</form>
 			</div>
 			<p className="error-message">&nbsp;{formData.error}</p>
