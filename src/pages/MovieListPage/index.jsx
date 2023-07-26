@@ -4,7 +4,7 @@ import MovieCard from '../../components/MovieCard';
 export default function MovieListPage() {
 	const allMovies = movies.map(movie => {
 		return (
-			<MovieCard movie={movie}/>
+			<MovieCard movie={movie} key={movie.title}/>
 		)
 	});
 	return (
