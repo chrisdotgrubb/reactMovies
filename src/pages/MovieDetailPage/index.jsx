@@ -1,7 +1,10 @@
-export default function MovieDetailPage() {
+import {useParams} from 'react-router-dom';
+
+export default function MovieDetailPage({movie}) {
+	const {movieName} = useParams()
 	return (
 		<div>
-			Movie Detail
+			<h2>{movieName}</h2>
 		</div>
 	);
 }
