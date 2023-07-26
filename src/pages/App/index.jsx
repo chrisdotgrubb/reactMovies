@@ -8,7 +8,7 @@ import MovieDetailPage from '../MovieDetailPage';
 import ActorListPage from '../ActorListPage';
 
 export default function App() {
-	const [user, setUser] = useState(1);
+	const [user, setUser] = useState(null);
 	
 	return (
 		<div className="App">
