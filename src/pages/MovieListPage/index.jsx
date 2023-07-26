@@ -1,7 +1,6 @@
-import {movies} from '../../data';
 import MovieCard from '../../components/MovieCard';
 
-export default function MovieListPage() {
+export default function MovieListPage({movies}) {
 	const allMovies = movies.map(movie => {
 		return (
 			<MovieCard movie={movie} key={movie.title}/>

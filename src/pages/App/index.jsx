@@ -1,4 +1,5 @@
 import './index.css';
+import {movies} from '../../data';
 import {useState} from 'react';
 import LoginPage from '../LoginPage';
 import NavBar from '../../components/NavBar';
@@ -9,6 +10,8 @@ import ActorListPage from '../ActorListPage';
 
 export default function App() {
 	const [user, setUser] = useState(null);
+	const uniqueActors = new Set()
+	movies.forEach(m => m.cast.forEach(a => uniqueActors.add(a)))
 	
 	return (
 		<div className="App">
@@ -16,9 +19,9 @@ export default function App() {
 				<>
 					<NavBar user={user} setUser={setUser}/>
 					<Routes>
-						<Route path={'/'} element={<MovieListPage/>} />
-						<Route path={'/movies/:movieName'} element={<MovieDetailPage/>} />
-						<Route path={'/actors'} element={<ActorListPage/>} />
+						<Route path={'/'} element={<MovieListPage movies={movies} />} />
+						<Route path={'/movies/:movieName'} element={<MovieDetailPage />} />
+						<Route path={'/actors'} element={<ActorListPage actors={[...uniqueActors]} />} />
 					</Routes>
 				</>
 				:
