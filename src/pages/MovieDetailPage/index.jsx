@@ -1,11 +1,8 @@
 import {Link, useLocation} from 'react-router-dom';
 
 export default function MovieDetailPage() {
-	const location = useLocation();
-	const movie = location.state.movie;
-	const cast = movie.cast.join(', ')
+	const movie = useLocation().state.movie;
 	const allCast = movie.cast.map(actor => {
-		console.log(actor)
 		return (
 			<>
 				<span>
