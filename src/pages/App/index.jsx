@@ -14,7 +14,7 @@ export default function App() {
 		<div className="App">
 			{user ?
 				<>
-					<NavBar user={user}/>
+					<NavBar user={user} setUser={setUser}/>
 					<Routes>
 						<Route path={'/'} element={<MovieListPage/>} />
 						<Route path={'/movies/:movieName'} element={<MovieDetailPage/>} />
@@ -22,7 +22,7 @@ export default function App() {
 					</Routes>
 				</>
 				:
-				<LoginPage />
+				<LoginPage setUser={setUser}/>
 			}
 		</div>
 	);

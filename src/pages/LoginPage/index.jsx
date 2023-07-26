@@ -1,8 +1,8 @@
 import {useState} from 'react';
 
-export default function LoginPage() {
+export default function LoginPage({setUser}) {
 	const defaultFormData = {
-		name: '',
+		username: '',
 		password: '',
 		error: '',
 	};
@@ -12,12 +12,17 @@ export default function LoginPage() {
 		setFormData({...formData, [evt.target.name]: evt.target.value, error: ''})
 	}
 	
+	function handleSubmit(evt) {
+		evt.preventDefault()
+		setUser(formData.username)
+	}
+	
 	return (
 		<div>
 			<div className="form-container">
-				<form autoComplete="off">
+				<form autoComplete="off" onSubmit={handleSubmit}>
 					<label>Name</label>
-					<input type="text" name="name" value={formData.name} onChange={handleChange} autoComplete={'username'} required/>
+					<input type="text" name="username" value={formData.username} onChange={handleChange} autoComplete={'username'} required/>
 					<label>Password</label>
 					<input type="password" name="password" value={formData.password} onChange={handleChange} autoComplete={'current-password'} required/>
 					<button type="submit">SIGN UP</button>
